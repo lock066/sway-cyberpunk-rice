@@ -1,0 +1,8 @@
+[color]
+gradient = 1
+gradient_color_1 = '#00ffff'
+gradient_color_2 = '#ff00ff'
+
+[smoothing]
+monstercat = 1
+waves = 0

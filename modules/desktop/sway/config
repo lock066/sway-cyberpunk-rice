@@ -1,0 +1,137 @@
+### 🛠️ 1. VARIÁVEIS E DEFINIÇÕES
+set $mod   Mod4
+set $term  kitty
+set $menu  rofi -show drun -show-icons -theme ~/.config/rofi/cyberpunk.rasi
+set $bg_img ~/.config/cybershell/wallpapers/default.jpg
+
+# Direções (Estilo Vim)
+set $left  h
+set $down  j
+set $up    k
+set $right l
+
+### 🎨 2. ESTÉTICA, GAPS E CORES (Cyberpunk Night City)
+default_border pixel 3
+default_floating_border normal
+hide_edge_borders none
+gaps inner 15
+gaps outer 5
+smart_gaps on
+
+# Palette: Tokyo Night (Blue / Dark / Purple)
+client.focused          #7aa2f7 #1a1b26 #c0caf5 #7aa2f7 #7aa2f7
+client.focused_inactive #292e42 #1a1b26 #545c7e #292e42 #292e42
+client.unfocused        #1a1b26 #1a1b26 #545c7e #1a1b26 #1a1b26
+client.urgent           #f7768e #f7768e #ffffff #f7768e #f7768e
+
+### 🪟 3. REGRAS DE JANELAS (Pop-ups e Widgets)
+floating_modifier $mod normal
+
+# [WIDGET] Relógio Fixo na Tela
+for_window [app_id="clock_widget"] {
+    floating enable
+    sticky enable
+    border none
+    resize set 340 160
+    move position 1550 50
+    focus_setting_priority low
+}
+
+# [POP-UP] Cava (Visualizador de Áudio)
+for_window [app_id="cava_popup"] {
+    floating enable
+    resize set 900 400
+    move position center
+    border pixel 5
+}
+
+# [POP-UP] Terminal de Sistema / PowerShell
+for_window [app_id="sys_popup"] {
+    floating enable
+    resize set 800 450
+    move position center
+    border pixel 5
+}
+
+# Regras Gerais de Diálogos
+for_window [window_role="pop-up"]      floating enable
+for_window [window_role="task_dialog"]  floating enable
+for_window [title="About Firefox"]     floating enable
+
+### ⌨️ 4. INPUT E ATALHOS
+input * {
+    xkb_layout br
+    xkb_variant abnt2
+}
+
+# Essenciais
+bindsym $mod+Return  exec $term
+bindsym $mod+Shift+q kill
+bindsym $mod+d       exec $menu
+bindsym $mod+Shift+c reload
+bindsym $mod+e       exec thunar
+bindsym $mod+i       exec code
+bindsym $mod+f       exec firefox
+
+# 🎵 Atalhos de Ferramentas (HUD Style)
+bindsym $mod+v       exec $term --app-id "cava_popup" -o background_opacity=0.8 -e cava
+bindsym $mod+p       exec $term --app-id "sys_popup" pwsh
+bindsym $mod+t       exec $term --app-id "sys_popup" -e tty-clock -c -C 5 -n
+
+# Sistema e Captura
+bindsym $mod+Shift+e exec swaynag -t warning -m 'Sair?' -b 'Sim' 'swaymsg exit'
+bindsym Print        exec grim ~/Imagens/$(date +%Y-%m-%d_%Hh%Mm%Ss).png
+bindsym $mod+Shift+s exec grim -g "$(slurp)" ~/Imagens/$(date +%Y-%m-%d_%Hh%Mm%Ss).png
+bindsym $mod+Shift+t exec pkill waybar || waybar
+
+# Movimentação de Foco
+bindsym $mod+$left   focus left
+bindsym $mod+$down   focus down
+bindsym $mod+$up     focus up
+bindsym $mod+$right  focus right
+
+# 🗂️ Workspaces (Abas) - Troca rápida Win+1..9
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9
+
+# 📦 Mover Janela para Workspace - Win+Shift+1..9
+bindsym $mod+Shift+1 move container to workspace number 1
+bindsym $mod+Shift+2 move container to workspace number 2
+bindsym $mod+Shift+3 move container to workspace number 3
+bindsym $mod+Shift+4 move container to workspace number 4
+bindsym $mod+Shift+5 move container to workspace number 5
+bindsym $mod+Shift+6 move container to workspace number 6
+bindsym $mod+Shift+7 move container to workspace number 7
+bindsym $mod+Shift+8 move container to workspace number 8
+bindsym $mod+Shift+9 move container to workspace number 9
+
+### 📏 5. MODO RESIZE
+mode "resize" {
+    bindsym $left   resize shrink width 10px
+    bindsym $down   resize grow height 10px
+    bindsym $up     resize shrink height 10px
+    bindsym $right  resize grow width 10px
+    bindsym Return  mode "default"
+    bindsym Escape  mode "default"
+}
+bindsym $mod+r mode "resize"
+
+### 🚀 6. AUTOSTART (Inicialização)
+# Wallpaper
+exec_always swww-daemon
+exec_always [ -f $bg_img ] && swww img $bg_img --transition-type grow --transition-pos 0.5,0.5
+
+# Barra de Status
+exec_always pkill waybar; waybar
+
+# Widget de Relógio (Inicia invisível e fixo)
+exec $term --app-id "clock_widget" -o background_opacity=0 -e tty-clock -C 6 -c -d 1s
+
+include /etc/sway/config.d/*

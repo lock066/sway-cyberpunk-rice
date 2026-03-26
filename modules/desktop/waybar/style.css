@@ -1,0 +1,102 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free";
+    font-size: 13px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: transparent;
+    color: #c0caf5;
+}
+
+#custom-launcher {
+    background: #7aa2f7;
+    color: #1a1b26;
+    margin: 5px 5px;
+    padding: 0 15px;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+#workspaces {
+    background: #1a1b26;
+    margin: 5px 5px;
+    padding: 0 5px;
+    border-radius: 10px;
+    border: 1px solid #414868;
+}
+
+#workspaces button {
+    padding: 0 5px;
+    color: #565f89;
+}
+
+#workspaces button.focused {
+    color: #7aa2f7;
+    background: #24283b;
+    border-radius: 5px;
+}
+
+#workspaces button.urgent {
+    color: #f7768e;
+}
+
+#clock, #battery, #cpu, #memory, #network, #pulseaudio, #custom-keychron, #custom-mifibra {
+    padding: 0 10px;
+    margin: 5px 2px;
+    border-radius: 10px;
+    background: #1a1b26;
+    border: 1px solid #414868;
+}
+
+#cpu {
+    background: #ff9e64;
+    color: #1a1b26;
+}
+
+#clock {
+    background: #1a1b26;
+    color: #c0caf5;
+}
+
+#custom-keychron {
+    background: #7aa2f7;
+    color: #1a1b26;
+    font-weight: bold;
+}
+
+#pulseaudio {
+    background: #f7768e;
+    color: #1a1b26;
+}
+
+#battery {
+    background: #9ece6a;
+    color: #1a1b26;
+}
+
+#memory {
+    background: #e0af68;
+    color: #1a1b26;
+}
+
+#custom-mifibra {
+    background: #7dcfff;
+    color: #1a1b26;
+}
+
+#network {
+    background: #bb9af7;
+    color: #1a1b26;
+}
+
+#custom-power {
+    background: #f7768e;
+    color: #1a1b26;
+    margin: 5px 5px;
+    padding: 0 15px;
+    border-radius: 10px;
+    font-size: 16px;
+}

@@ -1,0 +1,51 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 30,
+    "modules-left": ["sway/workspaces", "sway/mode"],
+    "modules-center": ["clock"],
+    "modules-right": ["pulseaudio", "network", "cpu", "memory", "battery", "tray", "custom/power"],
+
+    "sway/workspaces": {
+        "format": "{icon}",
+        "format-icons": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "default": ""
+        }
+    },
+    "clock": {
+        "format": "  {:%H:%M}",
+        "format-alt": "  {:%d/%m/%Y}"
+    },
+    "cpu": { "format": "  {usage}%", "interval": 5 },
+    "memory": { "format": "  {}%" },
+    "pulseaudio": {
+        "format": "{icon}  {volume}%",
+        "format-muted": "",
+        "format-icons": { "default": ["", "", ""] }
+    },
+
+"memory": {
+    "format": "RAM {percentage}%",
+    "tooltip": false
+}, 
+
+"custom/power": {
+    "format": "⏻ ",
+    "on-click": "swaynag -t warning -m 'O que deseja fazer?' -b 'Desligar' 'shutdown now' -b 'Reiniciar' 'reboot' -b 'Suspender' 'systemctl suspend'",
+    "tooltip": false
+},
+
+"network": {
+    "interval": 2,
+    "format-wifi": "  {essid} ({signalStrength}%)",
+    "format-ethernet": "󰈀  {ifname}",
+    "format-linked": "󰈀  {ifname} (No IP)",
+    "format-disconnected": "󰂭  Disconnected",
+    "format-alt": "󰕒 {bandwidthUpBytes} 󰇚 {bandwidthDownBytes}",
+    "tooltip-format": "{ifname} via {gwaddr} "
+  }
+}
+

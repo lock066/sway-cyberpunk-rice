@@ -1,0 +1,66 @@
+* {
+    bg-col:  #0a0a0fE6; /* Fundo escuro com 90% de transparência */
+    border-col: #00ffff;
+    selected-col: #1a1a2a;
+    blue: #00ffff;
+    fg-col: #ffffff;
+    fg-col2: #ff00ff; /* Magenta para detalhes */
+    
+    width: 600;
+    font: "JetBrainsMono Nerd Font 12";
+}
+
+window {
+    padding: 20;
+    border: 2;
+    border-color: @border-col;
+    background-color: @bg-col;
+}
+
+mainbox {
+    background-color: @bg-col;
+}
+
+inputbar {
+    children: [prompt,entry];
+    background-color: @bg-col;
+    border-radius: 5;
+    padding: 2;
+}
+
+prompt {
+    background-color: @blue;
+    padding: 6;
+    text-color: #000000;
+    border-radius: 3;
+    margin: 20 0 0 20;
+}
+
+entry {
+    padding: 6;
+    margin: 20 0 0 10;
+    text-color: @fg-col;
+    background-color: @bg-col;
+}
+
+listview {
+    border: 0px 0px 0px;
+    padding: 6 0 0;
+    margin: 10 0 0 20;
+    columns: 1;
+    lines: 8;
+    background-color: @bg-col;
+}
+
+element {
+    padding: 5;
+    background-color: @bg-col;
+    text-color: @fg-col;
+}
+
+element selected {
+    background-color:  @selected-col;
+    text-color: @blue;
+    border: 0 0 0 4;
+    border-color: @blue;
+}
