@@ -34,7 +34,7 @@ cybershell/
 Para instalar o CyberShell, clone o repositório e execute o instalador:
 
 ```bash
-git clone https://github.com/fr4n/cybershell.git
+git clone https://github.com/lock066/cybershell.git
 cd cybershell
 chmod +x install.sh
 ./install.sh --profile dev
