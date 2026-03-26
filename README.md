@@ -1,6 +1,7 @@
 # CyberShell Framework
 
-![CyberShell Banner](https://raw.githubusercontent.com/fr4n/cybershell/main/docs/assets/banner.png)
+![CyberShell Banner]<img width="1599" height="900" alt="2026-03-26_16h03m55s" src="https://github.com/user-attachments/assets/ec5cbccc-7773-4245-ba52-20f3c0415d0a" />
+
 
 O **CyberShell Framework** é um ecossistema modular para Linux, projetado para transformar distribuições base em ambientes de trabalho profissionais, estéticos e altamente produtivos. Diferente de um repositório de dotfiles comum, o CyberShell é um **framework de setup** que oferece instalação automatizada, perfis configuráveis e portabilidade entre as principais distribuições Linux.
 
