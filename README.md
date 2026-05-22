@@ -65,4 +65,4 @@ Contribuições são muito bem-vindas! Veja o arquivo [CONTRIBUTING.md](CONTRIBU
 Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para detalhes.
 
 ---
-Desenvolvido com 💜 por **fr4n** e **Manus AI**.
+Desenvolvido com 💜 por **fr4n**.
